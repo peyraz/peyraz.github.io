@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Przykład layoutu</title>
+  <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: Inter;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      color: #000000;
+      line-height: 1.6;
+    }
+
+    .header {
+      background: url("./images/wheat2.png");
+      background-size: cover;
+      text-align: center;
+      padding: 4rem 0;
+    }
+    .header h1 {
+      font-size: 2.8rem;
+      font-weight: bolder;  
+      margin-bottom: 0;
+    }
+    .header h2 {
+      font-size: 1.3rem;
+      font-weight: normal;
+      color: #000000;
+    }
+
+    nav {
+      background: #f3f3f3;
+      height: 6rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+    }
+    nav li {
+      margin: 0 3rem;
+    }
+    nav a {
+      display: block;
+      padding: 0.5rem 1rem;
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a.active,
+    nav a:hover {
+      color: #464646;
+    }
+
+    main {
+      font-size: 1.1rem;
+      flex: 1;
+      padding: 2rem;
+			background: linear-gradient(#e5e5e5, #acacac);
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    figure {
+      text-align: center;
+      max-width: 100%;
+    }
+
+    figure img {
+      display: block;
+      margin: 0 auto;
+      max-width: 90%;
+      width: 100%;
+      height: auto;
+    }
+
+    #jozef2 {
+      display: block;
+      margin: 0 auto;
+      max-width: 50%;
+      width: 100%;
+      height: auto;
+    }
+
+    figcaption {
+      margin-top: 10px;
+      font-style: italic;
+    }
+
+    p {
+      margin: 20px 0
+    }
+
+    .top-p {
+      margin-top: auto;
+    }
+
+    .tab-content {
+      width: 100%;
+      max-width: 900px;
+      border-radius: 8px;
+      padding: 2rem;
+      background: #f3f3f3;
+    }
+
+    footer {
+      background-color: #f3f3f3;
+      color: #000000;
+      text-align: center;
+      padding: 1rem 0;
+    }
+
+    .audio-player {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #464646;
+      padding: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    
+    .play-btn {
+      background-color: #F3F3F3;
+      color: #000000;
+      border: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1rem;
+      transition: background-color 0.3s;
+    }
+    
+    .play-btn:hover {
+      background-color: #cfcfcf;
+    }
+    
+    .progress-container {
+      flex-grow: 1;
+      max-width: 600px;
+    }
+    
+    .progress-bar {
+      width: 100%;
+      height: 10px;
+      background-color: #d3d3d3;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    .progress {
+      height: 100%;
+      background-color: #272727;
+      border-radius: 5px;
+      width: 0%;
+    }
+    
+    .time-display {
+      color: rgb(255, 255, 255);
+      margin-left: 1rem;
+      min-width: 100px;
+      text-align: center;
+      font-size: 1.2rem;
+    }
+
+    #volumeIcon {
+      width: 1.8rem;
+      height: 1.8rem;
+      margin-left: 2rem;
+    }
+
+    .slider {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 10%;
+      height: 10px;
+      border-radius: 5px;  
+      background: #ffffff;
+      outline: none;
+      opacity: 0.7;
+      -webkit-transition: .2s;
+      transition: opacity .2s;
+      margin-left: 1rem;
+    }
+
+    .slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%; 
+      background: #000000;
+      cursor: pointer;
+    }
+
+    .slider::-moz-range-thumb {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: #a95555;
+      cursor: pointer;
+    }
+
+  </style>
+</head>
+<body>
+
+  <nav>
+    <ul class="nav-links">
+      <li><a href="index.html">ŻYCIORYS</a></li>
+      <li><a href="bibliografia.html">BIBLIOGRAFIA</a></li>
+      <li><a href="parafia.html">PARAFIA</a></li>
+      <li><a href="film.html">FILM</a></li>
+      <li><a href="poezja.html">POEZJA</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="tab-content">
+      <p style="font-size: 1.5rem; text-align: center;">Bibliografia księdza kanonika dr Józefa Witkowskiego</p>
+
+      <p><i>Diecezja Toruńska 2014. Struktura i duchowieństwo</i>, Toruń 2015.</p>
+
+      <p>Kalinowski Jerzy Karol ks., <i>Podziały terytorialne diecezji toruńskiej, w: Jubileusz diecezji toruńskiej. Spojrzenie w przeszłość i w przyszłość</i>, red. Waldemar Rozynkowski, Paweł Borowski, Toruń 2017</p>
+
+      <p>Kalinowski Jerzy Karol ks., <i>Kapituły i kanonicy diecezji toruńskiej, w: Jubileusz diecezji toruńskiej. Spojrzenie w przeszłość i w przyszłość</i>, red. Waldemar Rozynkowski, Paweł Borowski, Toruń 2017.</p>
+
+      <p>Kalinowski Jerzy Karol ks., <i>Śp. ks. kanonik-jubilat Józef Witkowski</i>, Toruńskie Wiadomości Kościelne, R. 32, 2023, nr 1(124).</p>
+
+      <p>Ławniczak Adam, <i>Bractwo Świętego Józefa Opiekuna Rodzin przy kościele p.w. Chrystusa Króla w Toruniu</i>, Kaliskie Studia Teologiczne, t. 8: 2009/2010.</p>
+
+      <p>Ławniczak Adam, <i>Jubileusz Bractwa św. Józefa Opiekuna Rodzin (1)</i>, Niedziela, Głos z Torunia, nr 11: 2010.</p>
+
+      <p>Maniakowska Helena, <i>Wizytacja kanoniczna</i>, Niedziela, Głos z Torunia, nr 43: 2010.</p>
+
+      <p>Rumińska Jolanta, <i>80. rocznica Franciszkańskiego Zakonu Świeckich</i>, Niedziela, Głos z Torunia, nr 43: 2011.</p>
+
+      <p>Rozynkowski <i>Waldemar, Ksiądz kanonik dr Józef Witkowski (1939-2023)</i>, w: Barbara Witkowska, <b>wstawić tytuł tomiku wierszy, który będzie wydany</b>, Toruń 2025.</p>
+
+      <p>Witkowski Józef ks., <i>Jubileuszowe rekolekcje dla nauczycieli i katechetów</i>, Niedziela, Głos z Torunia, nr 28: 2000.</p>
+
+      <p>Witkowski Józef ks., <i>Kościół Chrystusa Króla na Mokrem w Toruniu</i>, Niedziela, Głos z Torunia, nr 30: 2006.</p>
+
+      <p>Strużanowski Tomasz, <i>10. rok pracy Bractwa św. Józefa</i>, Niedziela, Głos z Torunia, nr 41: 2009.</p>
+
+      <p>Wojnowski Mariusz ks., <i>Katechizacja w diecezji toruńskiej w latach 1992-2012</i>, Toruń 2017.</p>
+
+      <div style="text-align: right;" >
+        Opracował<br>
+        dk. prof. Waldemar Rozynkowski
+      </div>
+
+      <br>
+
+      <figure>
+        <img src="skany/usa2.png" alt="content image" width="600px" height="400px">
+        <figcaption>Opis</figcaption>
+      </figure>  
+
+    </div>
+  </main>
+
+  <footer>
+    Stopka
+  </footer>
+
+</body>
+</html>

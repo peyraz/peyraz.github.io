@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Przykład layoutu</title>
+  <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: Inter;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      color: #000000;
+      line-height: 1.6;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: normal;  
+      margin-bottom: 0;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: normal;
+      color: #000000;
+    }
+
+    nav {
+      background: #f3f3f3;
+      height: 6rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+    }
+    nav li {
+      margin: 0 3rem;
+    }
+    nav a {
+      display: block;
+      padding: 0.5rem 1rem;
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a.active,
+    nav a:hover {
+      color: #464646;
+    }
+
+    main {
+      font-size: 1.1rem;
+      flex: 1;
+      padding: 2rem;
+			background: linear-gradient(#e5e5e5, #acacac);
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    figure {
+      text-align: center;
+      max-width: 100%;
+    }
+
+    figure img {
+      display: block;
+      margin: 0 auto;
+      max-width: 90%;
+      width: 100%;
+      height: auto;
+    }
+
+    figcaption {
+      margin-top: 10px;
+      font-style: italic;
+    }
+
+    p {
+      margin: 20px 0
+    }
+
+    .tab-content {
+      width: 100%;
+      max-width: 900px;
+      border-radius: 8px;
+      padding: 2rem;
+      background: #f3f3f3;
+    }
+
+    footer {
+      background-color: #f3f3f3;
+      color: #000000;
+      text-align: center;
+      padding: 1rem 0;
+    }
+
+    #p_top {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .wrapper {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-column-gap: 25px;
+      grid-row-gap: 25px;
+    }
+
+    .wrapper > div img {
+      max-width: 100%;
+    }
+
+  </style>
+</head>
+<body>
+
+  <nav>
+    <ul class="nav-links">
+      <li><a href="index.html">ŻYCIORYS</a></li>
+      <li><a href="bibliografia.html">BIBLIOGRAFIA</a></li>
+      <li><a href="parafia.html">PARAFIA</a></li>
+      <li><a href="film.html">FILM</a></li>
+      <li><a href="poezja.html">POEZJA</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="tab-content">
+
+      <h2 id="p_top">Parafia rzymskokatolicka p.w. Chrystusa Króla w Toruniu</h2>
+
+      <img src="/images/kosciol.jpg" alt="Kościół" width="100%">
+
+      <p>Kościół jest zbudowany na planie centralnym z żelbetonu i cegły w kształcie rotundy przypominającej rzymski Panteon. Kościół jest otynkowany, nakryty kopułą o sklepieniu kryształowym, pokryty blachą cynkową i zwieńczony latarnią. Do rotundy przylegają dwa duże rozality. Pierwszy od strony północnej jako kruchta tworzy przedsionek i chór. Jego stronę frontową zdobi duża płaskorzeźba Chrystusa Króla stojącego na kuli ziemskiej, dzieło artysty rzeźbiarza St. Zelka. Po bokach rozalitu wybudowano dwie niewielkie czworoboczne wieżyczki, zakończone w górnej partii blendami.</p>
+
+      <p>Przybudówka od strony południowej otrzymała swój ostateczny kształt dopiero w 1957 r. i zawiera dwie zakrystie, biuro, kaplicę Miłosierdzia Bożego, korytarz i dwie toalety, a w podziemiu kaplicę pogrzebową oraz urządzenia centralnego ogrzewania na gaz i magazyny.</p>
+
+      <p>W prezbiterium znajduje się ołtarz główny na tle ogromnego krzyża z rzeżbą Chrystusa, pod którym umieszczono tabernakulum. Obok ołtarza zlokalizowano ambonkę i sedylia dla celebransów.</p>
+
+      <p>W bocznych kaplicach znajdują się ołtarze Najświętszego Serca Pana Jezusa i Matki Bożej Nieustającej Pomocy. Na  ścianach nawy i pod chórem rozmieszczono stacje Drogi Krzyżowej, wykonane przez artystę rzeźbiarza Ignacego Zelka. Pod chórem znajdują się dwa ołtarze:  św. Antoniego i  św. Franciszka z Asyżu.</p>
+
+      <p>Na chórze zamontowano 1935 r. organy Sauera, które w 1946 r. powiększono do 14-tu głosów, do dwóch manuałów i pedału. W 1930 r. wyposażono kościół w instalację elektryczną, a 1950 r. w radiofonię, a od 1957 r. w ogrzewanie węglowe, które w 1995 r. zmodernizowano i zamieniono na ogrzewanie gazowe.</p>
+
+      <div class="wrapper">
+        <div><img src="./skany/kosciol1.png" alt=""></div>
+        <div><img src="./skany/kosciol3.png" alt=""></div>
+        <div><img src="./skany/kosciol2.png" alt=""></div>
+        <div><img src="./skany/kosciol4.png" alt=""></div>
+      </div>
+
+      <br>
+      <div style="text-align: center;">
+        <a href="https://www.chrystuskrol.diecezja.torun.pl/" target="_blank"> Przejdź na stronę parafii </a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    Stopka
+  </footer>
+
+</body>
+</html>

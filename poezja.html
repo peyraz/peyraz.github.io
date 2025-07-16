@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Przykład layoutu</title>
+  <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: Inter;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      color: #000000;
+      line-height: 1.6;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      font-weight: normal;  
+      margin-bottom: 0;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: normal;
+      color: #000000;
+    }
+
+    nav {
+      background: #f3f3f3;
+      height: 6rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+    }
+    nav li {
+      margin: 0 3rem;
+    }
+    nav a {
+      display: block;
+      padding: 0.5rem 1rem;
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a.active,
+    nav a:hover {
+      color: #464646;
+    }
+
+    main {
+      font-size: 1.1rem;
+      flex: 1;
+      padding: 2rem;
+			background: linear-gradient(#e5e5e5, #acacac);
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    figure {
+      text-align: center;
+      max-width: 100%;
+    }
+
+    figure img {
+      display: block;
+      margin: 0 auto;
+      max-width: 90%;
+      width: 100%;
+      height: auto;
+    }
+
+    figcaption {
+      margin-top: 10px;
+      font-style: italic;
+    }
+
+    p {
+      margin: 20px 0
+    }
+
+    .tab-content {
+      width: 100%;
+      max-width: 900px;
+      border-radius: 8px;
+      padding: 2rem;
+      background: #f3f3f3;
+    }
+
+    footer {
+      background-color: #f3f3f3;
+      color: #000000;
+      text-align: center;
+      padding: 1rem 0;
+    }
+
+    .figure {
+      position: relative;
+      width: 50%;
+      margin: auto;
+    }
+
+    .figure img{
+      width: 100%;
+      border-radius: 5%;
+    }
+
+    .image-hover {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      border-radius: 5%;
+      object-fit: contain;
+      transition: opacity .2s;
+    }
+
+    .image-hover:hover {
+      opacity: 1;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .figure img {
+      margin: auto;
+    }
+
+    .galeria img  {
+      display: block;
+      margin: 0 auto;
+      max-width: 90%;
+      width: 100%;
+      height: auto;
+    }
+
+    #p_top {
+      text-align: center;
+    }
+
+    #wysoki {
+      display: block;
+      margin: 0 auto;
+      max-width: 50%;
+      width: 100%;
+      height: auto;
+    }
+
+    .wrapper {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-column-gap: 25px;
+      grid-row-gap: 25px;
+    }
+
+    .wrapper > div img {
+      max-width: 100%;
+    }
+
+  </style>
+</head>
+<body>
+
+  <nav>
+    <ul class="nav-links">
+      <li><a href="index.html">ŻYCIORYS</a></li>
+      <li><a href="bibliografia.html">BIBLIOGRAFIA</a></li>
+      <li><a href="parafia.html">PARAFIA</a></li>
+      <li><a href="film.html">FILM</a></li>
+      <li><a href="poezja.html">POEZJA</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="tab-content">
+      <h1> Poezja Barbary Witkowskiej </h1>
+
+      <br>
+
+      <figure>
+        <img src="skany/barbara3.png" alt="content image" width="600px" height="400px">
+        <figcaption>Opis</figcaption>
+      </figure>
+
+      <h3> Biografia </h3>
+
+      <p>
+        Pani Barbara Witkowska wydała osiem pozycji książkowych
+        prezentujących jej wiersze. Pozostawiła więc wyraźny ślad swojej
+        twórczości. Nie mam jednak wątpliwości, że obecny dziewiąty tom
+        jest wyjątkowy i zajmuje szczególne miejsce w jej życiu.
+        Poświęciła go bowiem zmarłemu Bratu, Księdzu Kanonikowi, Doktorowi
+        Józefowi Witkowskiemu.
+      </p>
+
+      <p>
+        Już sam tytuł tomu- "Jesteś moim światem" - wskazuje na silną
+        relację, która istniała między Siostrą i Bratem. I właśnie
+        wiersze stały się sposobem opisania łączącej ich miłości. Szczere
+        siostrzane uczucie odkrywa przed czytelnikiem głębię relacji z
+        Bratem, w której znajdujemy bliskość, piękno, ciepło, ale i
+        cierpienie z powodu śmierci. To wszystko spina wiara Autorki w
+        Opatrzność.
+      </p>
+
+      <p>
+        Cieszę się, że powstał rozdział poświęcony pamięci Kapłana,
+        którego miałem możliwość poznać. Wiele razy drogi naszego życia
+        przecinały się, był nawet czas, kiedy pracowałem jako nauczyciel
+        religii w szkole na terenie Parafii Chrystusa Króla w Toruniu, w
+        której był Proboszczem 27 lat. Mogliśmy się spotkać, kiedy
+        przyjeżdżał w ostatnich latach swojego życia do Parafii św.
+        Antoniego w Toruniu, aby sprawować Eucharystię. Wtedy już chorował.
+        Kiedy go wspominam, kojarzy mi się właśnie z tymi Eucharystiami,
+        podczas których składał ofiarę ze swojego życia.
+      </p>
+
+      <p style="text-align: right;">Prof.dr.hab.Waldemar Rozynkowski</p>
+      <p style="text-align: right;">UMK Toruń</p>
+
+      <div class="wrapper">
+        <div><img src="./skany/barbara1.png" alt=""></div>
+        <div><img src="./skany/barbara2.png" alt=""></div>
+      </div>
+
+      <br><br>
+
+      <h1>Wiersze wybrane</h1>
+
+      <div class="figure">
+        <img class="image-main" src="/images/30min.jpg">
+        <a href="https://www.youtube.com/watch?v=aBYpluJ_bYQ" target="_blank"><img class="image-hover" src="/images/play_thumb.png"></a>
+      </div>
+
+      <p>Wybór wierszy Barbary Witkowskiej, wybitnej poetki, obdarzonej
+        naturalnym talentem do opisywania zwyczajnego życia w sposób poetycki.
+        Tematyka wierszy dotyka najważniejszych prawd: Stwórcy, Miłości i
+        Rodziny. Do chwili obecnej Pani Barbara Witkowska wydała dziewięć
+        tomików poezji, kolejny jest w przygotowaniu. Prezentujemy Wiersze
+        wybrane z czterech z nich.</p>
+
+      <h1>Mama</h1>
+      <p>Prezentujemy Wiersze wybrane z tomiku "Mateńce w podzięce"<br>
+      Wiersze dedykujemy w prezencie dla każdej mamy .</p>
+
+      <h1>Rodzina</h1>
+      <p>Wybór wierszy Barbary Witkowskiej, poetki, która w naturalny sposób
+        opisuje relacje, uczucia i filozofię życia. Wybraliśmy kilka wierszy
+        poświęconych rodzinie.<br>
+        Wiersze dedykujemy rodzeństwu.</p>
+
+      <h1>Brat</h1>
+      <p>Tomik w przygotowaniu</p>
+
+      <h1>Koty</h1>
+      <p>Poeta Barbara Witkowska niezwykle ciekawie opisuje życie i sprawy
+        kotów, koty to jej przyjaciele i towarzysze z którymi dzieli trudy
+        życia. Z wrodzoną dla siebie delikatnością i humorem Pani Barbara
+        opisuje ich charaktery ,a także sposób patrzenia na świat .</p>
+
+      <div class="wrapper">
+        <div><img src="./skany/kot2.png" alt=""></div>
+        <div><img src="./skany/kot3.png" alt=""></div>
+        <div><img src="./skany/kot4.png" alt=""></div>
+        <div><img src="./skany/kot5.png" alt=""></div>
+        <div><img src="./skany/kot6.png" alt=""></div>
+        <div><img src="./skany/kot7.png" alt=""></div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    Stopka
+  </footer>
+
+</body>
+</html>
