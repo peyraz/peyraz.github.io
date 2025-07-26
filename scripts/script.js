@@ -5,6 +5,16 @@ const progressContainer = document.getElementById('progressContainer');
 const timeDisplay = document.getElementById('timeDisplay');
 const volumeSlider = document.getElementById('volumeSlider');
 
+const container = document.getElementById('text-container')
+const wiersze = Array.from(container.querySelectorAll('[data-start]'))
+  .map(el => ({
+    time: parseFloat(el.getAttribute('data-start')),
+    el
+  }))
+  .sort((a, b) => a.time - b.time);
+
+let currentIndex = 0;
+
 // Check if elements exist
 if (!audio || !playPauseBtn || !progress || !progressContainer || !timeDisplay) {
   console.error('Missing required audio player elements');
@@ -24,17 +34,9 @@ audio.addEventListener('loadedmetadata', () => {
 });
 
 // Initialize audio source
-audio.src = 'resources/biografia edit.wav';
+audio.src = 'resources/biografia_edit.wav';
 audio.load();
 
-// Remove segments functionality since it's causing errors
-// let segments = Array.from(tekst.querySelectorAll('.segment')).map((el, i, all) => {
-//     const start = parseFloat(el.dataset.start);
-//     const end = parseFloat(el.dataset.end);
-//     const top = el.offsetTop;
-//     const nextTop = (i + 1 < all.length) ? all[i+1].offsetTop : tekst.scrollHeight - container.clientHeight;
-//     return { el, start, end, scrollStart: top, scrollEnd: nextTop };
-//   });
 
 audio.addEventListener('timeupdate', updateProgress);
 
@@ -46,14 +48,29 @@ function updateProgress() {
   }
 }
 
-// Remove jump functionality since it depends on segments
-// document.querySelectorAll('.jump').forEach(btn => {
-//   btn.addEventListener('click', () => {
-//     const time = parseFloat(btn.dataset.time);
-//     audio.currentTime = time;
-//     audio.play();
-//   });
-// });
+audio.addEventListener('timeupdate', () => {
+  console.log('Current audio time:', audio.currentTime);
+  const t = audio.currentTime;
+  
+  // Move forward
+  while (currentIndex + 1 < wiersze.length && wiersze[currentIndex + 1].time <= t) {
+    currentIndex++;
+    wiersze[currentIndex].el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+  
+  // Move backward
+  while (currentIndex > 0 && wiersze[currentIndex].time > t) {
+    currentIndex--;
+    wiersze[currentIndex].el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  console.log('Current index:', currentIndex)
+  console.log('Current wiersz time:', wiersze[currentIndex]?.time);
+
+  wiersze[currentIndex].el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+});
+
 
 function formatTime(seconds) {
   const mins = Math.floor(seconds / 60);
@@ -64,14 +81,25 @@ function formatTime(seconds) {
 playPauseBtn.addEventListener('click', () => {
   if (audio.paused) {
     audio.play();
-    playPauseBtn.src = "images/pause.png";
-    playPauseBtn.alt = "Pause"
   } else {
     audio.pause();
+  }
+  updatePlayPauseIcon();
+});
+
+function updatePlayPauseIcon() {
+  if (audio.paused) {
     playPauseBtn.src = "images/play.png";
     playPauseBtn.alt = "Play"
+  } else {
+    playPauseBtn.src = "images/pause.png";
+    playPauseBtn.alt = "Pause"
   }
-});
+}
+
+audio.addEventListener('play', updatePlayPauseIcon);
+audio.addEventListener('pause', updatePlayPauseIcon);
+
 
 progressContainer.addEventListener('click', (e) => {
   const rect = progressContainer.getBoundingClientRect();
@@ -84,3 +112,7 @@ progressContainer.addEventListener('click', (e) => {
 volumeSlider.addEventListener('input', () => {
   audio.volume = volumeSlider.value;
 });
+
+console.log('Container element:', container);
+console.log('Found wiersze:', wiersze);
+console.log('All wiersze times:', wiersze.map(w => w.time));
