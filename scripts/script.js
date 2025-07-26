@@ -34,7 +34,7 @@ audio.addEventListener('loadedmetadata', () => {
 });
 
 // Initialize audio source
-audio.src = 'resources/biografia_edit.wav';
+audio.src = 'resources/biografiaEdit.wav';
 audio.load();
 
 
