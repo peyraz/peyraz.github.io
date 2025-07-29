@@ -22,7 +22,7 @@
 
     h1 {
       font-size: 1.5rem;
-      font-weight: normal;  
+      font-weight: bold;  
       margin-bottom: 0;
     }
 
@@ -106,15 +106,31 @@
       padding: 1rem 0;
     }
 
+    .figure-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      max-width: 900px;
+      margin: 40px auto;
+      flex-wrap: wrap;
+    }
+
+    .text-block {
+      flex: 1;
+      min-width: 200px;
+    }
+
     .figure {
       position: relative;
       width: 50%;
-      margin: auto;
+      min-width: 250px;
     }
 
-    .figure img{
+    .figure img {
       width: 100%;
       border-radius: 5%;
+      margin: auto;
     }
 
     .image-hover {
@@ -132,9 +148,6 @@
       background-color: rgba(0, 0, 0, 0.5);
     }
 
-    .figure img {
-      margin: auto;
-    }
 
     .galeria img  {
       display: block;
@@ -171,7 +184,7 @@
 </head>
 <body>
 
-  <nav>
+  <nav id="Home-Page-Top">
     <ul class="nav-links">
       <li><a href="index.html">ŻYCIORYS</a></li>
       <li><a href="bibliografia.html">BIBLIOGRAFIA</a></li>
@@ -183,13 +196,13 @@
 
   <main>
     <div class="tab-content">
-      <h1> Poezja Barbary Witkowskiej </h1>
+      <p style="font-size: 1.5rem; text-align: center;">Poezja Barbary Witkowskiej</p>
 
-      <br>
+      <hr style="width:90%;text-align:left;margin: auto auto 10px">
 
       <figure>
         <img src="skany/barbara3.png" alt="content image" width="600px" height="400px">
-        <figcaption>Opis</figcaption>
+        <figcaption>Carpe diem</figcaption>
       </figure>
 
       <h3> Biografia </h3>
@@ -229,17 +242,19 @@
       <p style="text-align: right;">UMK Toruń</p>
 
       <div class="wrapper">
-        <div><img src="./skany/barbara1.png" alt=""></div>
-        <div><img src="./skany/barbara2.png" alt=""></div>
+        <div><img src="skany/barbara1.png" alt=""></div>
+        <div><img src="skany/barbara2.png" alt=""></div>
       </div>
 
       <br><br>
 
       <h1>Wiersze wybrane</h1>
 
-      <div class="figure">
-        <img class="image-main" src="/images/30min.jpg">
-        <a href="https://www.youtube.com/watch?v=aBYpluJ_bYQ" target="_blank"><img class="image-hover" src="/images/play_thumb.png"></a>
+      <hr style="width:50%;text-align:left;margin-left:0; margin-bottom: 10px;">
+
+      <div class="figure" style="margin: auto;">
+        <img class="image-main" src="images/30min.jpg">
+        <a href="https://www.youtube.com/watch?v=aBYpluJ_bYQ" target="_blank"><img class="image-hover" src="images/play_thumb.png"></a>
       </div>
 
       <p>Wybór wierszy Barbary Witkowskiej, wybitnej poetki, obdarzonej
@@ -249,39 +264,276 @@
         tomików poezji, kolejny jest w przygotowaniu. Prezentujemy Wiersze
         wybrane z czterech z nich.</p>
 
+      <br>
+
       <h1>Mama</h1>
+      <hr style="width:50%;text-align:left;margin-left:0; margin-bottom: 10px;">
       <p>Prezentujemy Wiersze wybrane z tomiku "Mateńce w podzięce"<br>
-      Wiersze dedykujemy w prezencie dla każdej mamy .</p>
+      Wiersze dedykujemy w prezencie dla każdej mamy.</p>
+
+      <!--Matka 1-->
+      <div class="figure-container">
+        <div class="text-block">
+          <h2>1. Ukochanej Mateńce</h2>
+          <p>...w podzięce chciałabym ofiarować dużo więcej...</p>
+        </div>
+
+        <div class="figure">
+          <img class="image-main" src="images/matka1.jpg">
+          <a href="https://www.youtube.com/watch?v=bufdrTPqVVY" target="_blank">
+            <img class="image-hover" src="images/play_thumb.png">
+          </a>
+        </div>
+      </div>
+
+      <!--Matka 2-->
+      <div class="figure-container">
+        <div class="figure">
+          <img class="image-main" src="images/matka2.jpg">
+          <a href="https://www.youtube.com/watch?v=2AoQYct8FyM" target="_blank">
+            <img class="image-hover" src="images/play_thumb.png">
+          </a>
+        </div>
+
+        <div class="text-block">
+          <h2>2. Witanie</h2>
+          <p>...jest miłym akcentem spotkania, to znak...</p>
+        </div>
+      </div>
+
+      <!--Matka 3-->
+      <div class="figure-container">
+        <div class="text-block">
+          <h2>3. O złocie</h2>
+          <p>...ludzkość śpi na złocie od początku świata...</p>
+        </div>
+
+        <div class="figure">
+          <img class="image-main" src="images/matka3.png">
+          <a href="https://www.youtube.com/watch?v=H1exessDPeQ" target="_blank">
+            <img class="image-hover" src="images/play_thumb.png">
+          </a>
+        </div>
+      </div>
+
+      <!--Matka 4-->
+      <div class="figure-container">
+        <div class="figure">
+          <img class="image-main" src="images/matka4.jpg">
+          <a href="https://www.youtube.com/watch?v=JljH_Qul4z4" target="_blank">
+            <img class="image-hover" src="images/play_thumb.png">
+          </a>
+        </div>
+
+        <div class="text-block">
+          <h2>4. Przyjaciel</h2>
+          <p>...jakie to piękne słowo i wyjątkowa postać...</p>
+        </div>
+      </div>
+
+      <!--Matka 5-->
+      <div class="figure-container">
+        <div class="text-block">
+          <h2>5. Czytam</h2>
+          <p>...jedna z gwiazd na niebie...</p>
+        </div>
+
+        <div class="figure">
+          <img class="image-main" src="images/matka5.jpg">
+          <a href="https://www.youtube.com/watch?v=W562MiAVRw0" target="_blank">
+            <img class="image-hover" src="images/play_thumb.png">
+          </a>
+        </div>
+      </div>
+
+      <!--Matka 6-->
+      <div class="figure-container">
+        <div class="figure">
+          <img class="image-main" src="images/matka6.png">
+          <a href="https://www.youtube.com/watch?v=ELjjCE6MgK0" target="_blank">
+            <img class="image-hover" src="images/play_thumb.png">
+          </a>
+        </div>
+
+        <div class="text-block">
+          <h2>6. Trzeba poprosić</h2>
+          <p>...wystarczy błysk w oku i wiem, kamień szlachetny...</p>
+        </div>
+      </div>
+
+      <!--Matka 7-->
+      <div class="figure-container">
+        <div class="text-block">
+          <h2>7. Za późno</h2>
+          <p>...bym mówiła jej że ją kocham bardzo...</p>
+        </div>
+
+        <div class="figure">
+          <img class="image-main" src="images/matka7.jpg">
+          <a href="https://www.youtube.com/watch?v=sHdFSFplA9Y" target="_blank">
+            <img class="image-hover" src="images/play_thumb.png">
+          </a>
+        </div>
+      </div>
+
+      <br>
 
       <h1>Rodzina</h1>
+      <hr style="width:50%;text-align:left;margin-left:0; margin-bottom: 10px;">
       <p>Wybór wierszy Barbary Witkowskiej, poetki, która w naturalny sposób
         opisuje relacje, uczucia i filozofię życia. Wybraliśmy kilka wierszy
         poświęconych rodzinie.<br>
         Wiersze dedykujemy rodzeństwu.</p>
 
+      <!--Rodzina 1-->
+      <div class="figure-container">
+        <div class="figure">
+          <img class="image-main" src="images/rodzina1.png">
+          <a href="https://www.youtube.com/watch?v=CHZSxqDXkZA" target="_blank">
+            <img class="image-hover" src="images/play_thumb.png">
+          </a>
+        </div>
+
+        <div class="text-block">
+          <h2>1. Tylko on się przyda</h2>
+          <p>...teraz gdy serce mniej krwawi, mniej boli...</p>
+        </div>
+      </div>
+
+      <!--Rodzina 2-->
+      <div class="figure-container">
+        <div class="text-block">
+          <h2>2. Razem</h2>
+          <p>...nadzieja jak powietrze...</p>
+        </div>
+
+        <div class="figure">
+          <img class="image-main" src="images/rodzina2.jpg">
+          <a href="https://www.youtube.com/watch?v=lGLjX-faQG8" target="_blank">
+            <img class="image-hover" src="images/play_thumb.png">
+          </a>
+        </div>
+      </div>
+
+      <!--Rodzina 3-->
+      <div class="figure-container">
+        <div class="figure">
+          <img class="image-main" src="images/rodzina3.jpg">
+          <a href="https://www.youtube.com/watch?v=re52dGneNGM" target="_blank">
+            <img class="image-hover" src="images/play_thumb.png">
+          </a>
+        </div>
+
+        <div class="text-block">
+          <h2>3. Prośba</h2>
+          <p>...że jego życie na ziemi to były czary...</p>
+        </div>
+      </div>
+
+      <!--Rodzina 4-->
+      <div class="figure-container">
+        <div class="text-block">
+          <h2>4. Najlepszy przyjaciel</h2>
+          <p>...ma dla mnie dobre słowo i przyjazne spojrzenie...</p>
+        </div>
+
+        <div class="figure">
+          <img class="image-main" src="images/rodzina4.jpg">
+          <a href="https://www.youtube.com/watch?v=QokJF42z1FU&feature=youtu.be" target="_blank">
+            <img class="image-hover" src="images/play_thumb.png">
+          </a>
+        </div>
+      </div>
+
+      <!--Rodzina 5-->
+      <div class="figure-container">
+        <div class="figure">
+          <img class="image-main" src="images/rodzina5.png">
+          <a href="https://www.youtube.com/watch?v=CBcjF5dv5RA" target="_blank">
+            <img class="image-hover" src="images/play_thumb.png">
+          </a>
+        </div>
+
+        <div class="text-block">
+          <h2>5. Miłość wieczna</h2>
+          <p>...kochać to być szalonym przy zdrowych zmysłach...</p>
+        </div>
+      </div>
+
+      <!--Rodzina 6-->
+      <div class="figure-container">
+        <div class="text-block">
+          <h2>6. Majowy deszcz</h2>
+          <p>...ciepło, parno, przedpołudniowa godzina...</p>
+        </div>
+
+        <div class="figure">
+          <img class="image-main" src="images/rodzina6.png">
+          <a href="https://www.youtube.com/watch?v=pCaNpOr1YlA" target="_blank">
+            <img class="image-hover" src="images/play_thumb.png">
+          </a>
+        </div>
+      </div>
+
+      <!--Rodzina 7-->
+      <div class="figure-container">
+        <div class="figure">
+          <img class="image-main" src="images/rodzina7.png">
+          <a href="https://www.youtube.com/watch?v=NeBdrVdtey4" target="_blank">
+            <img class="image-hover" src="images/play_thumb.png">
+          </a>
+        </div>
+
+        <div class="text-block">
+          <h2>7. Dzień rodzeństwa</h2>
+          <p>...serdecznie, z wdzięcznością, myślę też o bracie...</p>
+        </div>
+      </div>
+
+      <!--Rodzina 8-->
+      <div class="figure-container">
+        <div class="text-block">
+          <h2>8. By pomóc bliskim</h2>
+          <p>...za raj na ziemi trzeba zapłacić...</p>
+        </div>
+
+        <div class="figure">
+          <img class="image-main" src="images/rodzina8.png">
+          <a href="https://www.youtube.com/watch?v=fj9j8aZZm8c" target="_blank">
+            <img class="image-hover" src="images/play_thumb.png">
+          </a>
+        </div>
+      </div>
+
+      <br>
+
       <h1>Brat</h1>
+      <hr style="width:50%;text-align:left;margin-left:0; margin-bottom: 10px;">
       <p>Tomik w przygotowaniu</p>
 
+      <br>
+
       <h1>Koty</h1>
+      <hr style="width:50%;text-align:left;margin-left:0; margin-bottom: 10px;">
       <p>Poeta Barbara Witkowska niezwykle ciekawie opisuje życie i sprawy
         kotów, koty to jej przyjaciele i towarzysze z którymi dzieli trudy
         życia. Z wrodzoną dla siebie delikatnością i humorem Pani Barbara
         opisuje ich charaktery ,a także sposób patrzenia na świat .</p>
 
       <div class="wrapper">
-        <div><img src="./skany/kot2.png" alt=""></div>
-        <div><img src="./skany/kot3.png" alt=""></div>
-        <div><img src="./skany/kot4.png" alt=""></div>
-        <div><img src="./skany/kot5.png" alt=""></div>
-        <div><img src="./skany/kot6.png" alt=""></div>
-        <div><img src="./skany/kot7.png" alt=""></div>
+        <div><img src="skany/kot2.png" alt=""></div>
+        <div><img src="skany/kot3.png" alt=""></div>
+        <div><img src="skany/kot4.png" alt=""></div>
+        <div><img src="skany/kot5.png" alt=""></div>
+        <div><img src="skany/kot6.png" alt=""></div>
+        <div><img src="skany/kot7.png" alt=""></div>
       </div>
 
     </div>
   </main>
 
   <footer>
-    Stopka
+    <a href="#Home-Page-Top">Powrót na górę strony</a>
   </footer>
 
 </body>
