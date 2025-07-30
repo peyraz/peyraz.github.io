@@ -88,8 +88,6 @@ audio.addEventListener('timeupdate', () => {
   console.log('Current index:', currentIndex)
   console.log('Current wiersz time:', wiersze[currentIndex]?.time);
 
-  wiersze[currentIndex].el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
 });
 
 
