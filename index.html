@@ -44,14 +44,28 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      position: relative;
+      z-index: 2;
     }
+
+    .nav-toggle {
+      display: none;
+      position: absolute;
+      left: 1rem;
+      font-size: 2rem;
+      cursor: pointer;
+      z-index: 3;
+    }
+
     nav ul {
       list-style: none;
       display: flex;
     }
+
     nav li {
       margin: 0 3rem;
     }
+
     nav a {
       display: block;
       padding: 0.5rem 1rem;
@@ -59,10 +73,88 @@
       text-decoration: none;
       font-weight: bold;
     }
+
     nav a.active,
     nav a:hover {
       color: #464646;
     }
+
+    /* Overlay (ciemne tło) */
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+
+        /* Ukryj X na desktopie */
+    .close-btn {
+      display: none;
+    }
+
+    /* Mobile styles */
+    @media (max-width: 768px) {
+      .nav-toggle {
+        display: block;
+        position: absolute;
+        left: 1rem;
+        font-size: 2rem;
+        cursor: pointer;
+        z-index: 3;
+
+      }
+
+      .close-btn {
+        display: block;
+        font-size: 2rem;
+        margin-left: auto;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 250px;
+        height: 100%;
+        background: #f3f3f3;
+        padding-top: 6rem;
+        transition: left 0.3s ease;
+        z-index: 2;
+      }
+
+      .nav-links.open {
+        left: 0;
+      }
+
+      .overlay {
+        display: none;
+      }
+
+      .overlay.show {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.5);
+        z-index: 1;
+      }
+
+      #volumeIcon {
+        display: none;
+      }
+
+      .slider {
+        display: none;
+      }
+    }
+
 
     main {
       font-size: 1.1rem;
@@ -236,14 +328,18 @@
   </div>
 
   <nav>
+    <div class="nav-toggle">&#9776;</div> <!-- hamburger -->
+    <div class="overlay"></div>           <!-- ciemne tło -->
     <ul class="nav-links">
-			<li><a href="index.html">ŻYCIORYS</a></li>
-			<li><a href="bibliografia.html">BIBLIOGRAFIA</a></li>
-			<li><a href="parafia.html">PARAFIA</a></li>
-			<li><a href="film.html">FILM</a></li>
-			<li><a href="poezja.html">POEZJA</a></li>
+      <li class="close-btn"><span>&#x2715;</span></li>
+      <li><a href="index.html">ŻYCIORYS</a></li>
+      <li><a href="bibliografia.html">BIBLIOGRAFIA</a></li>
+      <li><a href="parafia.html">PARAFIA</a></li>
+      <li><a href="film.html">FILM</a></li>
+      <li><a href="poezja.html">POEZJA</a></li>
     </ul>
   </nav>
+
 
   <main>
     <div class="tab-content">

@@ -5,6 +5,27 @@ const progressContainer = document.getElementById('progressContainer');
 const timeDisplay = document.getElementById('timeDisplay');
 const volumeSlider = document.getElementById('volumeSlider');
 
+const toggle = document.querySelector('.nav-toggle');
+const navLinks = document.querySelector('.nav-links');
+const overlay = document.querySelector('.overlay');
+const closeBtn = document.querySelector('.close-btn');
+
+function openMenu() {
+  navLinks.classList.add('open');
+  overlay.classList.add('show');
+  toggle.style.display = 'none';
+}
+
+function closeMenu() {
+  navLinks.classList.remove('open');
+  overlay.classList.remove('show');
+  toggle.style.display = 'block';
+}
+
+toggle.addEventListener('click', openMenu);
+overlay.addEventListener('click', closeMenu);
+closeBtn.addEventListener('click', closeMenu);
+
 const container = document.getElementById('text-container')
 const wiersze = Array.from(container.querySelectorAll('[data-start]'))
   .map(el => ({
