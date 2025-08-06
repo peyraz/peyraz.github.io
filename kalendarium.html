@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kalendarium</title>
+  <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: Inter;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      color: #000000;
+      line-height: 1.6;
+      overflow: auto;
+    }
+
+    .header {
+      background: url("./images/wheat2.png");
+      background-size: cover;
+      text-align: center;
+      padding: 4rem 0;
+    }
+    .header h1 {
+      font-size: 2.8rem;
+      font-weight: bolder;  
+      margin-bottom: 0;
+    }
+    .header h2 {
+      font-size: 1.3rem;
+      font-weight: normal;
+      color: #000000;
+    }
+
+    nav {
+      background: #f3f3f3;
+      height: 6rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .nav-toggle {
+      display: none;
+      position: absolute;
+      left: 1rem;
+      font-size: 2rem;
+      cursor: pointer;
+      z-index: 3;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+    }
+
+    nav li {
+      margin: 0 3rem;
+    }
+
+    nav a {
+      display: block;
+      padding: 0.5rem 1rem;
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a.active,
+    nav a:hover {
+      color: #464646;
+    }
+
+    /* Overlay (ciemne tło) */
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+
+        /* Ukryj X na desktopie */
+    .close-btn {
+      display: none;
+    }
+
+    /* Mobile styles */
+    @media (max-width: 768px) {
+      .tab-content{
+        font-size: 1rem;
+      }
+      
+      .nav-toggle {
+        display: block;
+        position: absolute;
+        left: 1rem;
+        font-size: 2rem;
+        cursor: pointer;
+        z-index: 3;
+
+      }
+
+      .close-btn {
+        display: block;
+        font-size: 2rem;
+        margin-left: auto;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 250px;
+        height: 100%;
+        background: #f3f3f3;
+        padding-top: 6rem;
+        transition: left 0.3s ease;
+        z-index: 2;
+      }
+
+      .nav-links.open {
+        left: 0;
+      }
+
+      .overlay {
+        display: none;
+      }
+
+      .overlay.show {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.5);
+        z-index: 1;
+      }
+    }
+
+    main {
+      font-size: 1.1rem;
+      flex: 1;
+      padding: 2rem;
+			background: linear-gradient(#e5e5e5, #acacac);
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    figure {
+      text-align: center;
+      max-width: 100%;
+    }
+
+    figure img {
+      display: block;
+      margin: 0 auto;
+      max-width: 90%;
+      width: 100%;
+      height: auto;
+    }
+
+    #jozef2 {
+      display: block;
+      margin: 0 auto;
+      max-width: 50%;
+      width: 100%;
+      height: auto;
+    }
+
+    figcaption {
+      margin-top: 10px;
+      font-style: italic;
+    }
+
+    p {
+      margin: 20px 0
+    }
+
+    .top-p {
+      margin-top: auto;
+    }
+
+    .tab-content {
+      width: 100%;
+      max-width: 900px;
+      border-radius: 8px;
+      padding: 2rem;
+      background: #f3f3f3;
+    }
+
+    footer {
+      background-color: #f3f3f3;
+      color: #000000;
+      text-align: center;
+      padding: 1rem 0;
+    }
+
+    .audio-player {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #464646;
+      padding: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    
+    .play-btn {
+      background-color: #F3F3F3;
+      color: #000000;
+      border: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1rem;
+      transition: background-color 0.3s;
+    }
+    
+    .play-btn:hover {
+      background-color: #cfcfcf;
+    }
+    
+    .progress-container {
+      flex-grow: 1;
+      max-width: 600px;
+    }
+    
+    .progress-bar {
+      width: 100%;
+      height: 10px;
+      background-color: #d3d3d3;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    .progress {
+      height: 100%;
+      background-color: #272727;
+      border-radius: 5px;
+      width: 0%;
+    }
+    
+    .time-display {
+      color: rgb(255, 255, 255);
+      margin-left: 1rem;
+      min-width: 100px;
+      text-align: center;
+      font-size: 1.2rem;
+    }
+
+    #volumeIcon {
+      width: 1.8rem;
+      height: 1.8rem;
+      margin-left: 2rem;
+    }
+
+    .slider {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 10%;
+      height: 10px;
+      border-radius: 5px;  
+      background: #ffffff;
+      outline: none;
+      opacity: 0.7;
+      -webkit-transition: .2s;
+      transition: opacity .2s;
+      margin-left: 1rem;
+    }
+
+    .slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%; 
+      background: #000000;
+      cursor: pointer;
+    }
+
+    .slider::-moz-range-thumb {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: #a95555;
+      cursor: pointer;
+    }
+
+  </style>
+</head>
+<body>
+
+  <nav id="Home-Page-Top">
+    <div class="nav-toggle">&#9776;</div> <!-- hamburger -->
+    <div class="overlay"></div>           <!-- ciemne tło -->
+    <ul class="nav-links">
+      <li class="close-btn"><span>&#x2715;</span></li>
+      <li><a href="index.html">ŻYCIORYS</a></li>
+      <li><a href="bibliografia.html">BIBLIOGRAFIA</a></li>
+      <li><a href="parafia.html">PARAFIA</a></li>
+      <li><a href="film.html">FILM</a></li>
+      <li><a href="poezja.html">POEZJA</a></li>
+      <li><a href="kalendarium.html">KALENDARIUM</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="tab-content" >
+      <p style="font-size: 1.5rem; text-align: center;">Ksiądz kanonik dr Józef Witkowski (1939-2023)</p>
+
+      <hr style="width:100%;text-align:left;margin-left:0">
+
+      <p>- Urodził się 1 listopada 1939 roku w miejscowości Turzno</p>
+
+      <p>- 23 stycznia 1940 r. chrzest w kościele parafialnym Wniebowzięcia Najświętszej Maryi Panny w Gostkowie</p>
+
+      <p>- 1946-1953 r. nauka w Szkole Podstawowej w Turznie.</p>
+
+      <p>- 6 lipca 1957 r.rozpoczęcie edukacji w Wyższym Seminarium Duchownym diecezji chełmińskiej w Pelplinie.</p>
+
+      <p>- 2 czerwca 1963r. Święcenia kapłańskie w uroczystość Zesłania Ducha Świętego </p>
+
+      <p>- 1 lipca 1963 r. wikariusz w parafii św. Jana Chrzciciela w Nieżywięciu</p>
+
+      <p>- 1 listopada 1963 r. wikariusz w parafii św. Mateusza Apostoła w Wałdowie  </p>
+
+      <p>- 1 lipca 1964 roku wikariusz w parafii Ścięcia św. Jana Chrzciciela w Chojnicach.</p>
+
+      <p>- 15 grudnia 1972 r. wikariusz-ekonom parafii św. Katarzyny Aleksandryjskiej w Nawrze</p>
+
+      <p>- 10 lutego 1973 r. roku administrator parafii św. Katarzyny Aleksandryjskiej w Nawrze</p>
+
+      <p>- 24 lutego 1976 roku proboszcz parafii św. Katarzyny Aleksandryjskiej w Nawrze</p>
+
+      <p>- 1973- 1977 r.  studia na Akademii Teologii Katolickiej w Warszawie. </p>
+
+      <p>- 22 czerwca 1977 r. studia doktoranckie na Akademii Teologii Katolickiej w Warszawie. </p>
+
+      <p>- 15 września 1981 r. administrator parafii Podwyższenia Krzyża Świętego w Lisewie </p>
+
+      <p>- 30 października 1981 r. proboszcz parafii Podwyższenia Krzyża Świętego w Lisewie </p>
+
+      <p>- 1 lipca 1985 roku opieka duszpasterska nad Domem Pomocy Społecznej w Mgoszczu. </p>
+      <p>- 18 maja 1987 roku obrona doktoratu na Wydziale Teologicznym Akademii Teologii Katolickiej w Warszawie.</p>
+      <p>- W 1987 roku wizytator katechetyczny Wydziału Katechetycznego Kurii Biskupiej Chełmińskiej w Pelplinie</p>
+      <p>- 1 lipca 1989 roku proboszcz parafii Chrystusa Króla w Toruniu</p>
+      <p>- 30 sierpnia 1989 roku kierownik Toruńskiego Ośrodka Dokształcania Katechetycznego</p>
+      <p>- 20 września 1990 roku dyrektor Studium Katechetycznego w Toruniu</p>
+      <p>- 2 kwietnia 1992 roku do 23 sierpnia 2000 roku dyrektor Wydziału Katechetycznego Kurii Diecezjalnej Toruńskiej; </p>
+      <p>- 10 czerwca 1992 roku duszpasterz nauczycieli; </p>
+      <p>- 10 czerwca 1992 roku członek Wydziału ds. Personalnych Kurii Diecezjalnej Toruńskiej; </p>
+      <p>- 5 listopada 1992 roku członek Diecezjalnej Rady Duszpasterskiej; </p>
+      <p>- 16 listopada 1992 roku kanonik gremialny Kapituły Katedralnej Toruńskiej.</p>
+      <p>- Od 29 lipca 1994 roku do 29 września 1995 roku  dyrektor Kolegium Teologicznego Diecezji Toruńskiej.</p>
+      <p>- Od 29 września 1995 roku do 11 września 2000 roku  kierownik sekcji katechetycznej w tymże kolegium. </p>
+      <p>- Od 29 października 1994 roku do 30 października 2001 roku był wykładowcą katechetyki w Wyższym Seminarium Duchownym w Toruniu oraz w Kolegium Teologicznym Diecezji Toruńskiej. </p>
+      <p>- 24 listopada 1994 roku członek Komisji Głównej Pierwszego Synodu Diecezji Toruńskiej, jednocześnie przewodniczący Komisji Synodu ds. Katechizacji. </p>
+      <p>- 1997 roku powołany na trzy lata do zespołu programowego ds. katechizacji dorosłych w diecezji. </p>
+      <p>- 2001 roku  kapelan Hospicjum Opieki Paliatywnej i Pielęgniarskiej w Toruniu.</p>
+      <p>- 1991-1994 od strony ul. Bażyńskich budowa nowej plebanii i domu parafialnego</p>
+      <p>- 2004 roku wybudowanie wolnostojącej dzwonnicy oraz umieszczenie w niej czterech dzwonów: „Chrystus Król” ważący 1650 kg, dzwon „Maryja” ważący 800 kg, dzwon „Józef” ważący 500 kg oraz dzwon „Jan Paweł II” ważący 350 kg. </p>
+      <p>- 17 października 2012 roku pożar w kościele parafialnym Chrystusa Króla w Toruniu</p>
+      <p>- 1 lipca 2015 roku ksiądz kanonik przechodzi na emeryturę</p>
+      <p>- 7 kwietnia 2023 roku umiera, w Wielki Piątek </p>
+
+      <br>
+
+    </div>
+  </main>
+
+  <footer>
+    <a href="#Home-Page-Top">Powrót na górę strony</a>
+  </footer>
+
+  <script src="scripts/script.js"></script>
+
+</body>
+</html>
