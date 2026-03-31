@@ -7,7 +7,7 @@
   <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
   <link href="./styles/styles.css" rel="stylesheet">
   <style>
-    .figure-container {
+    .my-figure-container {
       display: flex;
       align-items: center;
       justify-content: flex-start;
@@ -22,16 +22,15 @@
       min-width: 200px;
     }
 
-    .figure {
+    .my-figure {
       position: relative;
       width: 50%;
       min-width: 250px;
     }
 
-    .figure img {
+    .my-figure img {
       width: 100%;
       border-radius: 5%;
-      margin: auto;
     }
 
     .image-hover {
@@ -49,27 +48,27 @@
       background-color: rgba(0, 0, 0, 0.5);
     }
 
-    @media (max-width: 768px) {
-      .figure-container {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .figure-container .text-block {
-        order: 1;
-      }
-
-      .figure-container .figure {
-        order: 2;
-      }
-    }
-
     .galeria img  {
       display: block;
       margin: 0 auto;
       max-width: 90%;
       width: 100%;
       height: auto;
+    }
+
+    @media (max-width: 768px) {
+      .my-figure-container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .my-figure-container .text-block {
+        order: 1;
+      }
+
+      .my-figure-container .figure {
+        order: 2;
+      }
     }
   </style>
 </head>
@@ -96,7 +95,7 @@
       <hr style="width:90%;text-align:left;margin: auto auto 10px">
 
       <figure>
-        <img src="skany/barbara3.png" alt="content image" width="600px" height="400px">
+        <img src="skany/barbara3.png" alt="content image">
         <figcaption>Carpe diem</figcaption>
       </figure>
 
@@ -147,7 +146,7 @@
 
       <hr style="width:50%;text-align:left;margin-left:0; margin-bottom: 10px;">
 
-      <div class="figure" style="margin: auto;">
+      <div class="my-figure" style="margin: auto;">
         <img class="image-main" src="images/30min.jpg">
         <a href="https://www.youtube.com/watch?v=aBYpluJ_bYQ" target="_blank"><img class="image-hover" src="images/play_thumb.png"></a>
       </div>
@@ -167,13 +166,13 @@
       Wiersze dedykujemy w prezencie dla każdej mamy.</p>
 
       <!--Matka 1-->
-      <div class="figure-container">
+      <div class="my-figure-container">
         <div class="text-block">
           <h2>1. Ukochanej Mateńce</h2>
           <p>...w podzięce chciałabym ofiarować dużo więcej...</p>
         </div>
 
-        <div class="figure">
+        <div class="my-figure">
           <img class="image-main" src="images/matka1.jpg">
           <a href="https://www.youtube.com/watch?v=bufdrTPqVVY" target="_blank">
             <img class="image-hover" src="images/play_thumb.png">
@@ -182,8 +181,8 @@
       </div>
 
       <!--Matka 2-->
-      <div class="figure-container">
-        <div class="figure">
+      <div class="my-figure-container">
+        <div class="my-figure">
           <img class="image-main" src="images/matka2.jpg">
           <a href="https://www.youtube.com/watch?v=2AoQYct8FyM" target="_blank">
             <img class="image-hover" src="images/play_thumb.png">
@@ -197,13 +196,13 @@
       </div>
 
       <!--Matka 3-->
-      <div class="figure-container">
+      <div class="my-figure-container">
         <div class="text-block">
           <h2>3. O złocie</h2>
           <p>...ludzkość śpi na złocie od początku świata...</p>
         </div>
 
-        <div class="figure">
+        <div class="my-figure">
           <img class="image-main" src="images/matka3.png">
           <a href="https://www.youtube.com/watch?v=H1exessDPeQ" target="_blank">
             <img class="image-hover" src="images/play_thumb.png">
@@ -212,8 +211,8 @@
       </div>
 
       <!--Matka 4-->
-      <div class="figure-container">
-        <div class="figure">
+      <div class="my-figure-container">
+        <div class="my-figure">
           <img class="image-main" src="images/matka4.jpg">
           <a href="https://www.youtube.com/watch?v=JljH_Qul4z4" target="_blank">
             <img class="image-hover" src="images/play_thumb.png">
@@ -227,13 +226,13 @@
       </div>
 
       <!--Matka 5-->
-      <div class="figure-container">
+      <div class="my-figure-container">
         <div class="text-block">
           <h2>5. Czytam</h2>
           <p>...jedna z gwiazd na niebie...</p>
         </div>
 
-        <div class="figure">
+        <div class="my-figure">
           <img class="image-main" src="images/matka5.jpg">
           <a href="https://www.youtube.com/watch?v=W562MiAVRw0" target="_blank">
             <img class="image-hover" src="images/play_thumb.png">
@@ -242,8 +241,8 @@
       </div>
 
       <!--Matka 6-->
-      <div class="figure-container">
-        <div class="figure">
+      <div class="my-figure-container">
+        <div class="my-figure">
           <img class="image-main" src="images/matka6.png">
           <a href="https://www.youtube.com/watch?v=ELjjCE6MgK0" target="_blank">
             <img class="image-hover" src="images/play_thumb.png">
@@ -257,13 +256,13 @@
       </div>
 
       <!--Matka 7-->
-      <div class="figure-container">
+      <div class="my-figure-container">
         <div class="text-block">
           <h2>7. Za późno</h2>
           <p>...bym mówiła jej że ją kocham bardzo...</p>
         </div>
 
-        <div class="figure">
+        <div class="my-figure">
           <img class="image-main" src="images/matka7.jpg">
           <a href="https://www.youtube.com/watch?v=sHdFSFplA9Y" target="_blank">
             <img class="image-hover" src="images/play_thumb.png">
@@ -281,8 +280,8 @@
         Wiersze dedykujemy rodzeństwu.</p>
 
       <!--Rodzina 1-->
-      <div class="figure-container">
-        <div class="figure">
+      <div class="my-figure-container">
+        <div class="my-figure">
           <img class="image-main" src="images/rodzina1.png">
           <a href="https://www.youtube.com/watch?v=CHZSxqDXkZA" target="_blank">
             <img class="image-hover" src="images/play_thumb.png">
@@ -296,13 +295,13 @@
       </div>
 
       <!--Rodzina 2-->
-      <div class="figure-container">
+      <div class="my-figure-container">
         <div class="text-block">
           <h2>2. Razem</h2>
           <p>...nadzieja jak powietrze...</p>
         </div>
 
-        <div class="figure">
+        <div class="my-figure">
           <img class="image-main" src="images/rodzina2.jpg">
           <a href="https://www.youtube.com/watch?v=lGLjX-faQG8" target="_blank">
             <img class="image-hover" src="images/play_thumb.png">
@@ -311,8 +310,8 @@
       </div>
 
       <!--Rodzina 3-->
-      <div class="figure-container">
-        <div class="figure">
+      <div class="my-figure-container">
+        <div class="my-figure">
           <img class="image-main" src="images/rodzina3.jpg">
           <a href="https://www.youtube.com/watch?v=re52dGneNGM" target="_blank">
             <img class="image-hover" src="images/play_thumb.png">
@@ -326,13 +325,13 @@
       </div>
 
       <!--Rodzina 4-->
-      <div class="figure-container">
+      <div class="my-figure-container">
         <div class="text-block">
           <h2>4. Najlepszy przyjaciel</h2>
           <p>...ma dla mnie dobre słowo i przyjazne spojrzenie...</p>
         </div>
 
-        <div class="figure">
+        <div class="my-figure">
           <img class="image-main" src="images/rodzina4.jpg">
           <a href="https://www.youtube.com/watch?v=QokJF42z1FU&feature=youtu.be" target="_blank">
             <img class="image-hover" src="images/play_thumb.png">
@@ -341,8 +340,8 @@
       </div>
 
       <!--Rodzina 5-->
-      <div class="figure-container">
-        <div class="figure">
+      <div class="my-figure-container">
+        <div class="my-figure">
           <img class="image-main" src="images/rodzina5.png">
           <a href="https://www.youtube.com/watch?v=CBcjF5dv5RA" target="_blank">
             <img class="image-hover" src="images/play_thumb.png">
@@ -356,13 +355,13 @@
       </div>
 
       <!--Rodzina 6-->
-      <div class="figure-container">
+      <div class="my-figure-container">
         <div class="text-block">
           <h2>6. Majowy deszcz</h2>
           <p>...ciepło, parno, przedpołudniowa godzina...</p>
         </div>
 
-        <div class="figure">
+        <div class="my-figure">
           <img class="image-main" src="images/rodzina6.png">
           <a href="https://www.youtube.com/watch?v=pCaNpOr1YlA" target="_blank">
             <img class="image-hover" src="images/play_thumb.png">
@@ -371,8 +370,8 @@
       </div>
 
       <!--Rodzina 7-->
-      <div class="figure-container">
-        <div class="figure">
+      <div class="my-figure-container">
+        <div class="my-figure">
           <img class="image-main" src="images/rodzina7.png">
           <a href="https://www.youtube.com/watch?v=NeBdrVdtey4" target="_blank">
             <img class="image-hover" src="images/play_thumb.png">
@@ -386,13 +385,13 @@
       </div>
 
       <!--Rodzina 8-->
-      <div class="figure-container">
+      <div class="my-figure-container">
         <div class="text-block">
           <h2>8. By pomóc bliskim</h2>
           <p>...za raj na ziemi trzeba zapłacić...</p>
         </div>
 
-        <div class="figure">
+        <div class="my-figure">
           <img class="image-main" src="images/rodzina8.png">
           <a href="https://www.youtube.com/watch?v=fj9j8aZZm8c" target="_blank">
             <img class="image-hover" src="images/play_thumb.png">

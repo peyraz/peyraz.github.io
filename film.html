@@ -7,13 +7,14 @@
   <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
   <link href="./styles/styles.css" rel="stylesheet">
   <style>
-    .figure {
+    .my-figure {
       position: relative;
       width: 50%;
+      min-width: 250px;
       margin: auto;
     }
 
-    .figure img{
+    .my-figure img{
       width: 100%;
       border-radius: 5%;
     }
@@ -33,14 +34,9 @@
       background-color: rgba(0, 0, 0, 0.5);
     }
 
-    .figure img {
-      margin: auto;
-    }
-
     .galeria img  {
-      display: block;
+      display: flex;
       margin: 0 auto;
-      max-width: 90%;
       width: 100%;
       height: auto;
     }
@@ -68,7 +64,7 @@
       
       <hr style="width:50%;text-align:left;margin:auto auto 10px;">
 
-      <div class="figure">
+      <div class="my-figure">
         <img class="image-main" src="images/thumb1.jpg">
         <a href="https://www.youtube.com/@BarbaraWitkowska-poezja" target="_blank"><img class="image-hover" src="images/play_thumb.png"></a>
       </div>
@@ -77,13 +73,19 @@
 
       <br>
       
-      <div class="galeria">
-        <img src="skany/grupa4.png" alt="content image" width="600px" height="400px">
-        <img src="skany/grupa1.png" alt="content image" width="600px" height="400px">
-        <img src="skany/grupa3.png" alt="content image" width="600px" height="400px">
-        <img src="skany/grupa2.png" alt="content image" width="600px" height="400px">
-      </div>
+      <!-- <div class="galeria">
+        <img src="skany/grupa4.png" alt="content image">
+        <img src="skany/grupa1.png" alt="content image">
+        <img src="skany/grupa3.png" alt="content image">
+        <img src="skany/grupa2.png" alt="content image">
+      </div> -->
 
+      <figure>
+        <img src="skany/grupa4.png" alt="content image">
+        <img src="skany/grupa1.png" alt="content image">
+        <img src="skany/grupa3.png" alt="content image">
+        <img src="skany/grupa2.png" alt="content image">
+      </figure>
     </div>
   </main>
 
