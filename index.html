@@ -125,6 +125,48 @@
       cursor: pointer;
     }
 
+    .figure {
+      position: relative;
+      width: 50%;
+      margin: auto;
+    }
+
+    .figure img{
+      width: 100%;
+      border-radius: 5%;
+    }
+
+    .image-hover {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      border-radius: 5%;
+      object-fit: contain;
+      transition: opacity .2s;
+    }
+
+    .image-hover:hover {
+      opacity: 1;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .figure img {
+      margin: auto;
+    }
+
+    .galeria img  {
+      display: block;
+      margin: 0 auto;
+      max-width: 90%;
+      width: 100%;
+      height: auto;
+    }
+
+    #p_top {
+      text-align: center;
+    }
+
   </style>
 </head>
 <body>
@@ -271,6 +313,17 @@
         </div>
 
         <br><br>
+
+      <hr style="width:50%;text-align:left;margin:auto auto 10px;">
+
+      <div class="figure">
+        <img class="image-main" src="images/jozio.jpg">
+        <a href="https://www.youtube.com/watch?v=oKe08VlxMjs&t=2s" target="_blank"><img class="image-hover" src="images/play_thumb.png"></a>
+      </div>
+
+      <i><p style="text-align: center; margin: 0%;">Poezja katolicka Barbary Witkowskiej | Republika Kultury</p></i>
+
+      <br>
 
       </div>
     </div>
